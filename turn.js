@@ -420,7 +420,7 @@ turnMethods = {
 				even = page%2;
 			
 			data.pages[page] = data.pageObjs[page].
-								css({width: (single) ? this.width() : this.width()/2, height: this.height()}).
+								css({width: (single) ? "auto" : this.width()/2, height: this.height()}).
 								flip({page: page,
 									next: (single && page === data.totalPages) ? page -1 : ((even || single) ? page+1 : page-1),
 									turn: this,
@@ -1332,10 +1332,10 @@ flipMethods = {
 			size = Math.round(Math.sqrt(Math.pow(width, 2)+Math.pow(height, 2)));
 
 		if (full) {
-			data.wrapper.css({width: size, height: size});
-			data.fwrapper.css({width: size, height: size}).
+			data.wrapper.css({width: "100%", height: size});
+			data.fwrapper.css({width: "100%", height: size}).
 				children(':first-child').
-					css({width: width, height: height});
+					css({width: "auto", height: height});
 
 			data.fpage.css({width: height, height: width});
 
